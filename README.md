@@ -118,4 +118,8 @@ $article = new Article();
 //this method returns an array with all comments
 //that belongs to the article object
 $comments = Comment::get($article);
+
+foreach($comments as $comment) {
+	echo $comment->getContent() . PHP_EOL;
+}
 ````
