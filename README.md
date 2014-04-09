@@ -81,7 +81,8 @@ Register the comment facade for an fancy usage
 
 Now, the entire usage is based on the `CommentRepositoryInterface`, which has an implementation for mysql database using Laravel connection layer.
 
-The implementation can be found at `Softservlet\Comments\Laravel\Repo\CommentRepository` and in the following examples the `Comment` facade accessor will be used.
+The implementation can be found at `Softservlet\Comments\Laravel\Repo\CommentRepository`.
+In the following examples the `Comment` will be the facade accessor of the `CommentRepository` and the `$comment` variable will be an instance of `Softservlet\Comments\Laravel\Comment` object that implements the `Softservlet\Comments\CommentInterface` interface.
 
 #### Find a comment by id
 ````php
