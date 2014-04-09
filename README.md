@@ -122,6 +122,7 @@ $comments = Comment::get($article);
 foreach($comments as $comment) {
 	echo $comment->getContent() . PHP_EOL;
 }
+````
 
 #### Update a comment's content
 ````php
