@@ -134,4 +134,9 @@ $comment = Comment::find(1);
 //and the new content of it
 Comment::update($comment, 'Very nice article!');
 ````
+
+### Delete a comment
+````php
+//This method accepts as parameter the comment id
+Comment::delete(1);
 ````
