@@ -29,9 +29,9 @@ abstract class AbstractCommentRepository implements CommentRepositoryInterface
 	 * 
 	 * @return CommenterInterface
 	 */
-	public function getCommenter(CommentInterface $comment)
+	public function getCommenter(CommentInterface $comment, $type)
 	{
-		return $this->finder->find($comment);
+		return $this->finder->find($comment->getCommenterId(), $comment->getCommenterType());
 	}
 
 }

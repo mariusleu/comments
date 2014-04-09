@@ -45,7 +45,7 @@ interface CommentRepositoryInterface
 	 * 
 	 * @return CommenterInterface
 	 */
-	public function getCommenter(CommentInterface $comment);
+	public function getCommenter(CommentInterface $comment, $type);
 
 	/**
 	 * @brief find a comment by id
