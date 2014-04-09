@@ -122,4 +122,14 @@ $comments = Comment::get($article);
 foreach($comments as $comment) {
 	echo $comment->getContent() . PHP_EOL;
 }
+
+#### Update a comment's content
+````php
+$comment = Comment::find(1);
+
+//this method accepts as parameter the
+//comment object that we need to update
+//and the new content of it
+Comment::update($comment, 'Very nice article!');
+````
 ````
