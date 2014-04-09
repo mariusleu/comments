@@ -1,10 +1,12 @@
-### Comments
+Comments
 ============
 
 This is an package that allows you to add comments to anything entity in your application.
 For example if you have a blog, you may want to add comments to articles, or if you have an social networking application, you may want to add comments on anything, like facebook does.
 
-#### Usage
+This package implementation is documented and designed to work with Laravel 4 framework, but you can easily adapt it to your framework.
+
+## Creating implemetations
 
 The first thing that you need to do is to create your implementation of "what will be commented" and "who will post the comment".
 
@@ -53,3 +55,57 @@ class Article implements CommentableInterface
 	}
 }
 ````
+## Laravel integration
+
+Go to app/config/app.php file.
+
+Register the package with the laravel application 
+	
+	...
+
+	'providers' => array(
+		...
+		'Softservlet\Comments\CommentsServiceProvider'
+	)
+
+Register the comment facade for an fancy usage
+
+	...
+
+	'aliases' => array(
+		...
+		'Comment' => 'Softservlet\Comments\CommentsFacade'
+	)
+
+## The repository
+
+Now, the entire usage is based on the `CommentRepositoryInterface`, which has an implementation for mysql database using Laravel connection layer.
+
+The implementation can be found at `Softservlet\Comments\Laravel\Repo\CommentRepository` and in the following examples the `Comment` facade accessor will be used.
+
+#### Find a comment by id
+````php
+//The find method accepts as parameter an integer
+//that represents the id and returns an CommentInterface
+//or null if the comment was not found
+$comment = Comment::find(1);
+````
+#### Create a comment
+````php
+//The object that will be commented
+$commentable = new Article();
+
+//The object that will post the comment
+$commenter = new User();
+
+//Optionally we can give another comment that
+//the following one will belong to, so it will
+//be created as an reply.
+$parentComment = Comment::find(100);
+
+//this will return an Softservlet\CommentInterface object
+//and lets assume that it's id will be 1
+$comment = Comment::create('This is a comment', $commentable, $commenter, $parentComment);
+````
+
+
