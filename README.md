@@ -1,4 +1,5 @@
 ### Comments
+============
 
 This is an package that allows you to add comments to anything entity in your application.
 For example if you have a blog, you may want to add comments to articles, or if you have an social networking application, you may want to add comments on anything, like facebook does.
