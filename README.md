@@ -108,4 +108,14 @@ $parentComment = Comment::find(100);
 $comment = Comment::create('Nice article!', $commentable, $commenter, $parentComment);
 ````
 
+#### Get comments that belongs to an 'Commentable' object
 
+Once we've added a comment to the article, we want to retrieve all the comments that belongs to it.
+
+````php
+$article = new Article();
+
+//this method returns an array with all comments
+//that belongs to the article object
+$comments = Comment::get($article);
+````
