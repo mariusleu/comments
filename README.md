@@ -105,7 +105,7 @@ $parentComment = Comment::find(100);
 
 //this will return an Softservlet\CommentInterface object
 //and lets assume that it's id will be 1
-$comment = Comment::create('This is a comment', $commentable, $commenter, $parentComment);
+$comment = Comment::create('Nice article!', $commentable, $commenter, $parentComment);
 ````
 
 
